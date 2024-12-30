@@ -30,3 +30,6 @@ services:
 networks:
   customerservicenetwork:
     driver: bridge
+
+volumes:
+  db_data:
