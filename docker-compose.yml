@@ -1,7 +1,7 @@
 services:
-  customerservicedb:
+  db:
     image: mysql:latest
-    container_name: customerservicedb
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: Prestige123
       MYSQL_DATABASE: customers_db
@@ -19,11 +19,11 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - customerservicedb
+      - db
     networks:
       - customerservicenetwork
     environment:
-      - DATASOURCES_DEFAULT_URL=jdbc:mysql://customerservicedb:3306/customers_db
+      - DATASOURCES_DEFAULT_URL=jdbc:mysql://db:3306/customers_db
       - DATASOURCES_DEFAULT_USERNAME=root
       - DATASOURCES_DEFAULT_PASSWORD=Prestige123
 
