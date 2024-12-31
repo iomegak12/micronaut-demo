@@ -4,7 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
         {
             "type": "java",
             "name": "Current File",
@@ -16,7 +15,12 @@
             "name": "Application",
             "request": "launch",
             "mainClass": "com.intsol.Application",
-            "projectName": "customerservice"
+            "projectName": "customerservice",
+            "env": {
+                "DATASOURCES_DEFAULT_URL": "jdbc:mysql://localhost:3306/micronaut_user_db",
+                "DATASOURCES_DEFAULT_USERNAME": "root",
+                "DATASOURCES_DEFAULT_PASSWORD": "Prestige123"
+            }
         }
     ]
 }

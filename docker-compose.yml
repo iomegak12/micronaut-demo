@@ -1,7 +1,7 @@
 services:
-  db:
+  dbserver:
     image: mysql:latest
-    container_name: db
+    container_name: dbserver
     environment:
       MYSQL_ROOT_PASSWORD: Prestige123
       MYSQL_DATABASE: customers_db
@@ -19,9 +19,9 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      - dbserver
     environment:
-      - DATASOURCES_DEFAULT_URL=jdbc:mysql://db:3306/customers_db
+      - DATASOURCES_DEFAULT_URL=jdbc:mysql://dbserver:3306/customers_db?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
       - DATASOURCES_DEFAULT_USERNAME=root
       - DATASOURCES_DEFAULT_PASSWORD=Prestige123
     networks:
@@ -33,4 +33,5 @@ volumes:
 
 networks:
   customerservicenetwork:
+    name: customerservicenetwork
     driver: bridge
